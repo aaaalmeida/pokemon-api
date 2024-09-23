@@ -1,5 +1,5 @@
 import { MongoClient, ObjectId } from "mongodb"
-import { IPokemon } from "entity/Pokemon";
+import { IPokemon } from "entity/Pokemon"
 
 export class PokemonRepository {
   readonly client: MongoClient
