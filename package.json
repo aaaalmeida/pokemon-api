@@ -1,0 +1,40 @@
+{
+  "name": "pokemon-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaaalmeida/pokemon-api.git"
+  },
+  "keywords": [
+    "rest",
+    "typescript",
+    "express",
+    "mongodb",
+    "zod",
+    "jest"
+  ],
+  "author": "aaalmeida",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaaalmeida/pokemon-api/issues"
+  },
+  "homepage": "https://github.com/aaaalmeida/pokemon-api#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "tsc": "^2.0.4",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2"
+  }
+}
