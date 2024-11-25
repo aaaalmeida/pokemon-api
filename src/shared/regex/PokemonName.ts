@@ -1,0 +1,1 @@
+export const PokemonName = RegExp("^[a-zA-Z]+$")
