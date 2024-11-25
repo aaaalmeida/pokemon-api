@@ -6,6 +6,5 @@ export interface IPokemon {
     image: string
     size?: number
     weight?: number
-    // TODO: permitir evolução
     evolution?: ObjectId | string
 }
