@@ -47,7 +47,7 @@ pokemonRouter.get("/:id", async (req: Request, res: Response) => {
 
 pokemonRouter.get("", async (req: Request, res: Response) => {
     try {
-        res.status(200).send(FindAllPokemons(pokemonRepository))
+        res.status(200).send(await FindAllPokemons(pokemonRepository))
     } catch (error) {
         res.status(500).send("Internal Error")
     }

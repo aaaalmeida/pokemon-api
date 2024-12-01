@@ -16,7 +16,7 @@ export class PokemonRepository {
         return await this.client.db(this.DB_NAME).collection(this.COLLECTION_NAME).findOne({ _id: objectID })
     }
 
-    findAll() {
-        return this.client.db(this.DB_NAME).collection(this.COLLECTION_NAME).find()
+    async findAll() {
+        return await this.client.db(this.DB_NAME).collection(this.COLLECTION_NAME).find({}).toArray()
     }
 }
