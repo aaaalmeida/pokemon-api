@@ -1,4 +1,4 @@
-import { PokemonRepository } from "@infrastructure/db/PokemonRepository"
+import PokemonRepository from "@infrastructure/db/PokemonRepository"
 import { InvalidObjectId } from "@shared/exception/InvalidObjectId"
 import { ObjectId } from "mongodb"
 

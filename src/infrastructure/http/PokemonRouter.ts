@@ -3,13 +3,15 @@ dotenv.config()
 
 import { CreatePokemon } from "@application/CreatePokemon"
 import { IPokemon } from "@domain/Pokemon"
-import { PokemonRepository } from "@infrastructure/db/PokemonRepository"
+import PokemonRepository from "@infrastructure/db/PokemonRepository"
 import { Router, Request, Response } from "express"
 import { MongoClient } from "mongodb"
 import { ZodError } from "zod"
 import { FindPokemonById } from "@application/FindPokemonById"
 import { InvalidObjectId } from "@shared/exception/InvalidObjectId"
 import { FindAllPokemons } from "@application/FindAllPokemons"
+import { DeletePokemon } from "@application/DeletePokemon"
+import { UpdatePokemon } from "@application/UpdatePokemon"
 
 export const pokemonRouter = Router()
 
@@ -29,7 +31,6 @@ pokemonRouter.post("/", async (req: Request, res: Response) => {
     }
 })
 
-// FIXME: ajust invalid id exception
 pokemonRouter.get("/:id", async (req: Request, res: Response) => {
     try {
         const id = req.params.id
@@ -48,6 +49,24 @@ pokemonRouter.get("/:id", async (req: Request, res: Response) => {
 pokemonRouter.get("", async (req: Request, res: Response) => {
     try {
         res.status(200).send(await FindAllPokemons(pokemonRepository))
+    } catch (error) {
+        res.status(500).send("Internal Error")
+    }
+})
+
+pokemonRouter.patch("/:id", async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const data = req.body as Partial<IPokemon>
+        res.status(201).send(await UpdatePokemon(pokemonRepository, id, data))
+    } catch (error) {
+        res.send(500).send("Internal Error")
+    }
+})
+
+pokemonRouter.delete("/:id", async (req: Request, res: Response) => {
+    try {
+        res.status(200).send(await DeletePokemon(pokemonRepository, req.params.id))
     } catch (error) {
         res.status(500).send("Internal Error")
     }
