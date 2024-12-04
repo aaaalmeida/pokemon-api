@@ -48,6 +48,33 @@ const pokemonRoutesDocs = {
                 }
             }
         },
+        get: {
+            summary: "List all Pokemons",
+            responses: {
+                200: {
+                    description: "List of Pokemons",
+                    content: {
+                        "application/json": {
+                            schema: {
+                                type: "array",
+                                items: { $ref: "#/components/schemas/Pokemon" }
+                            }
+                        }
+                    }
+                },
+                500: {
+                    description: "Undefined Error",
+                    content: {
+                        "text/plain": {
+                            schema: {
+                                type: "string",
+                                example: "Internal Error"
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
